@@ -1,0 +1,11 @@
+# IDE and code editors
+.idea
+*.iml
+
+# To prevent the maven wrapper jar from sneaking into the repo
+# as well as any other jars that might be left behind unintentionally.
+*.jar
+
+# Java
+target
+
