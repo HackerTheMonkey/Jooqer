@@ -55,14 +55,9 @@
         </dependency>
         <!-- Docker    -->
         <dependency>
-            <groupId>com.github.docker-java</groupId>
-            <artifactId>docker-java</artifactId>
-            <version>${docker.java.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.docker-java</groupId>
-            <artifactId>docker-java-transport-httpclient5</artifactId>
-            <version>3.2.7</version>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-client</artifactId>
+            <version>8.16.0</version>
         </dependency>
         <!-- Sl4j       -->
         <dependency>
@@ -74,6 +69,13 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
+        </dependency>
+        <!-- Lombok    -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.18</version>
+            <scope>provided</scope>
         </dependency>
         <!-- Testing   -->
         <dependency>
