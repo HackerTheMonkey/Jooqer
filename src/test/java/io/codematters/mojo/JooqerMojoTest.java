@@ -1,4 +1,4 @@
-package io.codematters;
+package io.codematters.mojo;
 
 
 import static junit.framework.TestCase.assertTrue;

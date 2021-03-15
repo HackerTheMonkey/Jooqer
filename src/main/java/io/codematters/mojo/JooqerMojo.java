@@ -1,4 +1,4 @@
-package io.codematters;
+package io.codematters.mojo;
 
 
 import org.apache.maven.plugin.AbstractMojo;

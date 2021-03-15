@@ -40,6 +40,11 @@ public class DockerCommands {
     }
 
     @SneakyThrows
+    public void removeContainer(ContainerCreation container) {
+        client.removeContainer(container.id());
+    }
+
+    @SneakyThrows
     public ContainerInfo inspectContainer(ContainerCreation container) {
         return client.inspectContainer(container.id());
     }

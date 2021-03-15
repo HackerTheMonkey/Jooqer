@@ -24,7 +24,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.version>3.3.9</maven.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <docker.java.version>3.2.7</docker.java.version>
+        <docker.client.version>8.16.0</docker.client.version>
+        <lombok.version>1.18.18</lombok.version>
     </properties>
 
     <dependencies>
@@ -57,7 +58,7 @@
         <dependency>
             <groupId>com.spotify</groupId>
             <artifactId>docker-client</artifactId>
-            <version>8.16.0</version>
+            <version>${docker.client.version}</version>
         </dependency>
         <!-- Sl4j       -->
         <dependency>
@@ -74,7 +75,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.18</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- Testing   -->

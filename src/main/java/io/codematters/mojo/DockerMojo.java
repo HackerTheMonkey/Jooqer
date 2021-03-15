@@ -1,8 +1,10 @@
-package io.codematters.docker;
+package io.codematters.mojo;
 
 import com.spotify.docker.client.messages.Container;
 import com.spotify.docker.client.messages.ContainerCreation;
 import com.spotify.docker.client.messages.ContainerInfo;
+import io.codematters.docker.DockerCommands;
+import io.codematters.docker.DockerConfig;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -36,26 +38,29 @@ public class DockerMojo extends AbstractMojo {
         DockerCommands docker = new DockerCommands(dockerConfig.getClient());
 
         final ContainerCreation container = docker.createContainer(dockerConfig.getContainerConfig());
-        getLog().info("container: " + container);
+        getLog().info("Container: " + container);
 
         final List<Container> containers = docker.listContainers();
-        getLog().info("containers: " + containers);
+        getLog().info("Containers: " + containers);
 
         docker.startContainer(container);
-        getLog().info("container successfully started");
+        getLog().info("Container successfully started");
 
 //        Enable for extra logging - this may stop the container from being killed currently
 //        docker.enableContainerLogging(container);
 
         final ContainerInfo info = docker.inspectContainer(container);
-        getLog().info("here is your container info: " + info);
+        getLog().info("Container info: " + info);
 
         /*Run liquibase & JOOQ logic here after container has been spun up*/
 
         docker.stopContainer(container);
-        getLog().info("container stopped now");
+        getLog().info("Stopping container...");
 
-        getLog().info("killing docker client now");
+        docker.removeContainer(container);
+        getLog().info("Removing container...");
+
         docker.closeDockerClient();
+        getLog().info("Killing docker client...");
     }
 }
